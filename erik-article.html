@@ -1,0 +1,96 @@
+<link rel="import" href="../polymer/polymer.html">
+<link rel="import" href="../iron-icons/iron-icons.html">
+
+<!--
+`erik-article`
+
+
+@demo demo/index.html 
+-->
+
+<dom-module id="erik-article">
+  <template>
+    <style>
+      :host {
+        display: block;
+      }
+      .cajaflex{
+    display : flex;
+    justify-content: space-between;
+    }
+    .articulo{
+        border: 1px solid #ddd;
+        padding: 10px;
+      box-shadow: 0 1px 4px rgba(0,0,0,.04);
+      margin-bottom: 20px;
+    }
+    img{
+        width: 100%;
+    }
+    *{
+        font-family: 'Lato', sans-serif;
+    }
+
+    span{
+        font-size: 14px;
+        color :rgba(0,0,0,.44);
+    }
+
+    .fecha{
+        margin-bottom: 15px;
+
+    }
+    .color_green{
+        color  :#00ab6b;
+    }
+
+    .color_gray{
+        color  :rgba(0,0,0,.44);
+    }
+
+    </style>
+    <div class="articulo">
+        <span class="color_green"> [[objeto.autor]]
+            <span class="color_gray"> in </span>
+           [[objeto.categoria]] </span>
+        <div class="fecha">
+            <span>[[objeto.mes_dia]] </span>
+        </div>    
+        <div> <img src="[[objeto.imagen]]"> </div>
+        <h3>[[objeto.titulo]] </h3>
+        <p class="color_gray">[[objeto.descripcion]]</p>
+        <div class="cajaflex">
+            <span> <iron-icon icon="icons:favorite-border"></iron-icon>[[objeto.favoritos]]</span>
+            <span>[[objeto.respuestas]] <iron-icon icon="icons:turned-in-not"></iron-icon></span>
+        </div>
+    </div>
+  </template>
+
+  <script>
+    Polymer({
+
+      is: 'erik-article',
+
+      properties: {
+        prop1: {
+          type: String,
+          value: 'acuario',
+        },
+        objeto: {
+          type: Object,
+          value: {
+              titulo : "Free Speech Now  Brutal War on the Internet",
+              mes_dia : "10 agosto",
+              imagen : "https://cdn-images-1.medium.com/fit/t/800/240/0*eIftYj-G7GSiHZ_B.jpg",
+              autor : "Anders Emil Maller",
+              descripcion : "The internet has ruined...",
+              favoritos : "100",
+              respuestas : "31 responses",
+              categoria : "trouble stories"
+          },
+        },
+      },
+
+    });
+  </script>
+</dom-module>
